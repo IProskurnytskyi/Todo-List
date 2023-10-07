@@ -15,5 +15,5 @@ class Task(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=128)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name

@@ -19,11 +19,11 @@ class TaskCreateView(generic.CreateView):
 
 def task_done_not_done(request: HttpRequest, pk: int) -> HttpResponse:
     task = Task.objects.get(id=pk)
-    if task.is_completed:
-        task.is_completed = False
-    else:
-        task.is_completed = True
+
+    task.is_completed = not task.is_completed
+
     task.save()
+
     return HttpResponseRedirect(reverse("todo:task-list"))
 
 
